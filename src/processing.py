@@ -1,7 +1,7 @@
 from typing import Any
 
 
-def filter_by_state(list_of_dictionaries: list[dict[str, Any]], id_state: str = "EXECUTED") -> Any:
+def filter_by_state(list_of_dictionaries: list[dict[str, Any]], id_state: str = "EXECUTED") -> list[dict[str, Any]]:
     """
     Функция, которая возвращает новый список словарей,
     содержащий только те словари, у которых ключ state соответствует указанному значению
