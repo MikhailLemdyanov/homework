@@ -33,11 +33,11 @@ def log(filename: str | None = None) -> Callable:
                 work_time = stop_time - start_time
                 if filename is not None:
                     with open(filename, "a", encoding="utf-8") as file:
-                        file.write(f"Function: {func.__name__} - ERROR: {error} with inputs: {args}, {kwargs}\n")
+                        file.write(f"{func.__name__} - ERROR: {error} with inputs: {args}, {kwargs}\n")
                         file.write(f"Working time is: {work_time:.10f}\n")
 
                 else:
-                    print(f"Function: {func.__name__} - ERROR: {error} with inputs: {args}, {kwargs}\n")
+                    print(f"{func.__name__} - ERROR: {error} with inputs: {args}, {kwargs}\n")
 
                 result = "Error occurred\n"
 
