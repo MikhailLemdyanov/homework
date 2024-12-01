@@ -46,11 +46,3 @@ def log(filename: str | None = None) -> Callable:
         return wrapper
 
     return my_decorator
-
-
-# @log(filename="../logs/mylog.txt")
-# def my_function(x: int, y: int) -> int:
-#     return x + y
-#
-#
-# my_function("3", 2)
