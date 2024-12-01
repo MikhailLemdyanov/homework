@@ -1,1 +1,8 @@
-Result of my_function: 5 - OK. Working time is 0.0000004768
+The result of working my_function: 5 - ОК
+Working time is: 0.0000007153
+The result of working my_function: 5 - ОК
+Working time is: 0.0000004768
+The result of working my_function: 5 - ОК
+Working time is: 0.0000004768
+Function: my_function - ERROR: can only concatenate str (not "int") to str with inputs: ('3', 2), {}
+Working time is: 0.0000019073
