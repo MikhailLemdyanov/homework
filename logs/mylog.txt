@@ -1,0 +1,44 @@
+The result of working my_function: 5 - ОК
+Working time is: 0.0000007153
+The result of working my_function: 5 - ОК
+Working time is: 0.0000004768
+The result of working my_function: 5 - ОК
+Working time is: 0.0000004768
+Function: my_function - ERROR: can only concatenate str (not "int") to str with inputs: ('3', 2), {}
+Working time is: 0.0000019073
+The result of working my_test_func: 3 - ОК
+Working time is: 0.0000004768
+Function: my_test_func - ERROR: can only concatenate str (not "int") to str with inputs: ('a', 2), {}
+Working time is: 0.0000042915
+The result of working my_test_func: 3 - ОК
+Working time is: 0.0000004768
+Function: my_test_func - ERROR: can only concatenate str (not "int") to str with inputs: ('a', 2), {}
+Working time is: 0.0000030994
+The result of working my_test_func: 3 - ОК
+Working time is: 0.0000007153
+Function: my_test_func - ERROR: can only concatenate str (not "int") to str with inputs: ('a', 2), {}
+Working time is: 0.0000052452
+The result of working my_test_func: 3 - ОК
+Working time is: 0.0000004768
+Function: my_test_func - ERROR: can only concatenate str (not "int") to str with inputs: ('a', 2), {}
+Working time is: 0.0000028610
+The result of working my_test_func: 3 - ОК
+Working time is: 0.0000009537
+Function: my_test_func - ERROR: can only concatenate str (not "int") to str with inputs: ('a', 2), {}
+Working time is: 0.0000028610
+The result of working my_test_func: 3 - ОК
+Working time is: 0.0000004768
+Function: my_test_func - ERROR: can only concatenate str (not "int") to str with inputs: ('a', 2), {}
+Working time is: 0.0000033379
+The result of working my_test_func: 3 - ОК
+Working time is: 0.0000009537
+Function: my_test_func - ERROR: can only concatenate str (not "int") to str with inputs: ('a', 2), {}
+Working time is: 0.0000030994
+The result of working my_test_func: 3 - ОК
+Working time is: 0.0000007153
+Function: my_test_func - ERROR: can only concatenate str (not "int") to str with inputs: ('a', 2), {}
+Working time is: 0.0000045300
+The result of working my_test_func: 3 - ОК
+Working time is: 0.0000004768
+my_test_func - ERROR: can only concatenate str (not "int") to str with inputs: ('a', 2), {}
+Working time is: 0.0000052452
