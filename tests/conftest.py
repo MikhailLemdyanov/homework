@@ -1,7 +1,8 @@
 import pytest
 
+
 @pytest.fixture
-def transaction_for_conversion():
+def transaction_for_conversion() -> dict:
     return {
         "id": 361044570,
         "state": "EXECUTED",
@@ -14,7 +15,7 @@ def transaction_for_conversion():
 
 
 @pytest.fixture
-def result_of_conversion():
+def result_of_conversion() -> str:
     return """{
   "date": "2018-02-22",
   "historical": "",
@@ -33,7 +34,7 @@ def result_of_conversion():
 
 
 @pytest.fixture
-def result_of_conversion_without_result():
+def result_of_conversion_without_result() -> str:
     return """{
   "date": "2018-02-22",
   "historical": "",
@@ -51,7 +52,7 @@ def result_of_conversion_without_result():
 
 
 @pytest.fixture
-def transaction_for_conversion_invalid():
+def transaction_for_conversion_invalid() -> dict:
     return {
         "id": 361044570,
         "state": "EXECUTED",
@@ -64,8 +65,9 @@ def transaction_for_conversion_invalid():
         "to": "Счет 30377212495530283001",
     }
 
+
 @pytest.fixture
-def transactions_list():
+def transactions_list() -> list:
     return [
         {
             "id": 939719570,
