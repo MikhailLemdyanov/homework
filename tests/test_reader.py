@@ -1,6 +1,8 @@
 from unittest.mock import mock_open, patch
-from src.reader import get_csv_data, get_excel_data
+
 import pandas as pd
+
+from src.reader import get_csv_data, get_excel_data
 
 
 @patch(
@@ -35,6 +37,7 @@ def test_read_csv_not_path():
     transactions = get_csv_data("")
 
     assert transactions == []
+
 
 @patch("pandas.read_excel")
 def test_get_excel(mock_read_excel, excel_data, excel_data_result):
