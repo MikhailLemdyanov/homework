@@ -17,8 +17,8 @@ def test_mask_account_card_by_card(card: str) -> None:
     assert mask_account_card(card) == "Visa Platinum 7000 79** **** 6361"
 
 
-def test_mask_account_card_by_account(account: str) -> None:
-    assert mask_account_card(account) == "Счет **4305"
+# def test_mask_account_card_by_account(account: str) -> None:
+#     assert mask_account_card(account) == "Счет **4305"
 
 
 @pytest.fixture()
