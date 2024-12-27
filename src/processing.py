@@ -1,6 +1,6 @@
 from typing import Any
 import re
-from collections import Counter
+
 
 
 
@@ -22,21 +22,35 @@ def sort_by_date(list_of_dictionaries: list[dict[str, Any]], reverse_list: bool 
 def search_by_description(list_of_transactions: list[dict], search_str: str) -> list[dict]:
     """Функция, которая принимает список словарей с данными о банковских операциях и строку поиска
     и возвращает список словарей, у которых в описании есть данная строка"""
+    pattern = re.compile(re.escape(search_str), re.IGNORECASE)
     search_result = []
     for transaction in list_of_transactions:
-        if re.search(search_str, list_of_transactions['description'], flags=re.IGNORECASE):
-            search_result.append(transaction)
+        if 'description' in transaction and search_str:
+            if re.search(pattern, transaction['description']):
+                search_result.append(transaction)
+        else:
+            return []
     return search_result
 
 
-def count_by_description(list_of_transactions: list[dict], description_list: list[str]) -> list[dict]:
+def count_by_description(list_of_transactions: list[dict], category_list: list[str]) -> dict:
     """Функция, которая принимает список словарей с данными о банковских операциях и список категорий операций и
      возвращает словарь, в котором ключи — это названия категорий, а значения — это количество операций в каждой категории"""
-    list_for_count = []
-    for description in description_list:
-        for transaction in list_of_transactions:
-            if transaction['description'] == description.title():
-                list_for_count.append(transaction['description'])
-    count_result = Counter(list_for_count)
-    return count_result
+    search_result = {}
+
+    if category_list:
+        for category in category_list:
+            pattern = re.compile(re.escape(category), flags=re.IGNORECASE)
+
+            category_counter = 0
+
+            for transaction in list_of_transactions:
+                if re.search(pattern, transaction['description']):
+                    category_counter += 1
+                    search_result[category] = category_counter
+    else:
+        raise Exception('Список категорий пустой')
+
+    return search_result
+
 
