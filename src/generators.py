@@ -4,7 +4,34 @@ from typing import Any, Generator
 def filter_by_currency(list_of_transaction: list[dict[str, Any]], currency: str) -> Generator[Any]:
     """Функция принимает на вход список словарей, представляющих транзакции и возвращает итератор,
     который поочередно выдает транзакции, где валюта операции соответствует заданной (например, USD)"""
-    return (x for x in list_of_transaction if x["operationAmount"]["currency"]["code"] == currency)
+    if not list_of_transaction:
+        raise ValueError("Список транзакций пуст")
+
+    for transaction in list_of_transaction:
+        if "operationAmount" in transaction:
+            result_by_currency = (
+                x for x in list_of_transaction if x["operationAmount"]["currency"]["code"] == currency
+            )
+            first_item = next(result_by_currency, None)
+
+            if first_item is None:
+                raise ValueError("Операции в заданной валюте не найдены")
+
+            yield first_item
+            yield from result_by_currency
+
+        elif "currency_code" in transaction:
+            result_by_currency = (x for x in list_of_transaction if x["currency_code"] == currency)
+            first_item = next(result_by_currency, None)
+
+            if first_item is None:
+                raise ValueError("Операции в заданной валюте не найдены")
+
+            yield first_item
+            yield from result_by_currency
+
+        else:
+            raise KeyError("Информация о валюте отсутствует")
 
 
 def transaction_descriptions(list_of_transaction: list[dict[str, Any]]) -> Generator[Any]:
