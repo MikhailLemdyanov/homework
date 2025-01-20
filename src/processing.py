@@ -1,7 +1,5 @@
-from typing import Any
 import re
-
-
+from typing import Any
 
 
 def filter_by_state(list_of_dictionaries: list[dict[str, Any]], id_state: str = "EXECUTED") -> list[dict[str, Any]]:
@@ -25,8 +23,8 @@ def search_by_description(list_of_transactions: list[dict], search_str: str) -> 
     pattern = re.compile(re.escape(search_str), re.IGNORECASE)
     search_result = []
     for transaction in list_of_transactions:
-        if 'description' in transaction and search_str:
-            if re.search(pattern, transaction['description']):
+        if "description" in transaction and search_str:
+            if re.search(pattern, transaction["description"]):
                 search_result.append(transaction)
         else:
             return []
@@ -35,7 +33,8 @@ def search_by_description(list_of_transactions: list[dict], search_str: str) -> 
 
 def count_by_description(list_of_transactions: list[dict], category_list: list[str]) -> dict:
     """Функция, которая принимает список словарей с данными о банковских операциях и список категорий операций и
-     возвращает словарь, в котором ключи — это названия категорий, а значения — это количество операций в каждой категории"""
+    возвращает словарь, в котором ключи — это названия категорий, а значения — это количество операций в каждой категории
+    """
     search_result = {}
 
     if category_list:
@@ -45,12 +44,10 @@ def count_by_description(list_of_transactions: list[dict], category_list: list[s
             category_counter = 0
 
             for transaction in list_of_transactions:
-                if re.search(pattern, transaction['description']):
+                if re.search(pattern, transaction["description"]):
                     category_counter += 1
                     search_result[category] = category_counter
     else:
-        raise Exception('Список категорий пустой')
+        raise Exception("Список категорий пустой")
 
     return search_result
-
-
