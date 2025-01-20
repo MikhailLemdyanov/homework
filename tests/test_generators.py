@@ -108,3 +108,21 @@ def test_filter_by_currency(my_list_of_transaction: list[dict[str, Any]]) -> Non
         "from": "Счет 19708645243227258542",
         "to": "Счет 75651667383060284188",
     }
+
+
+def test_filter_by_invalid_currency(transactions_list_invalid: list[dict[str, Any]]) -> None:
+    with pytest.raises(ValueError) as exc_info:
+        list(filter_by_currency(transactions_list_invalid, "USD"))
+    assert exc_info.value.args[0] == "Операции в заданной валюте не найдены"
+
+
+def test_filter_by_currency_without_key(transactions_list_without_key: list[dict[str, Any]]) -> None:
+    with pytest.raises(KeyError) as exc_info:
+        list(filter_by_currency(transactions_list_without_key, "RUB"))
+    assert exc_info.value.args[0] == "Информация о валюте отсутствует"
+
+
+def test_filter_by_invalid_currency_empty(transactions_list_empty: list[dict[str, Any]]) -> None:
+    with pytest.raises(ValueError) as exc_info:
+        list(filter_by_currency(transactions_list_empty, "RUB"))
+    assert str(exc_info.value) == "Список транзакций пуст"
