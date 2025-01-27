@@ -3,12 +3,15 @@ from src.masks import get_mask_account, get_mask_card_number
 
 def mask_account_card(user_info: str) -> str:
     """Функция, маскирующая информацию как о картах, так и о счетах"""
-    if "Счет" in user_info:
-        return f"Счет {get_mask_account(user_info)}"
+    info_list = user_info.split(" ")
+    if info_list[0] == "Счет":
+
+        return f"Счет {get_mask_account(info_list[1])}"
+
     else:
-        card_number = get_mask_card_number(user_info[-16:])
-        card_mask = user_info.replace(user_info[-16:], card_number)
-        return card_mask
+
+        joined_info = " ".join(info_list[:-1])
+        return f"{joined_info} {get_mask_card_number(info_list[-1])}"
 
 
 def get_date(date: str) -> str:
